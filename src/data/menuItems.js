@@ -6,7 +6,7 @@ export const menuItems = [
     category: 'Coffee',
     description: 'Classic espresso diluted with hot water',
     price: 22000,
-    image: '/src/assets/menu/coffee/americano.jpeg'
+    image: '/menu/coffee/americano.jpeg'
   },
   {
     id: 2,
@@ -14,7 +14,7 @@ export const menuItems = [
     category: 'Coffee',
     description: 'Smooth espresso with steamed milk',
     price: 28000,
-    image: '/src/assets/menu/coffee/hotlatte.png'
+    image: '/menu/coffee/hotlatte.png'
   },
   {
     id: 3,
@@ -22,7 +22,7 @@ export const menuItems = [
     category: 'Coffee',
     description: 'Refreshing cold latte with ice',
     price: 28000,
-    image: '/src/assets/menu/coffee/iced-latte.jpeg'
+    image: '/menu/coffee/iced-latte.jpeg'
   },
   {
     id: 4,
@@ -30,7 +30,7 @@ export const menuItems = [
     category: 'Coffee',
     description: 'Chocolate meets coffee with ice',
     price: 30000,
-    image: '/src/assets/menu/coffee/iced-cafemocha.jpeg'
+    image: '/menu/coffee/iced-cafemocha.jpeg'
   },
   {
     id: 5,
@@ -38,7 +38,7 @@ export const menuItems = [
     category: 'Coffee',
     description: 'Japanese style iced coffee',
     price: 26000,
-    image: '/src/assets/menu/coffee/japanese-iced-coffee.jpeg'
+    image: '/menu/coffee/japanese-iced-coffee.jpeg'
   },
   {
     id: 6,
@@ -46,7 +46,7 @@ export const menuItems = [
     category: 'Coffee',
     description: 'Hand-brewed specialty coffee',
     price: 32000,
-    image: '/src/assets/menu/coffee/manual-brew.jpeg'
+    image: '/menu/coffee/manual-brew.jpeg'
   },
   {
     id: 7,
@@ -54,7 +54,7 @@ export const menuItems = [
     category: 'Coffee',
     description: 'Unique coffee with soda and lemon twist',
     price: 28000,
-    image: '/src/assets/menu/coffee/es-kopi-sodalemon.jpeg'
+    image: '/menu/coffee/es-kopi-sodalemon.jpeg'
   },
 
   // Non-Coffee
@@ -64,7 +64,7 @@ export const menuItems = [
     category: 'Non-Coffee',
     description: 'Premium Japanese green tea latte',
     price: 30000,
-    image: '/src/assets/menu/non-coffee/matcha.png'
+    image: '/menu/non-coffee/matcha.png'
   },
   {
     id: 9,
@@ -72,7 +72,7 @@ export const menuItems = [
     category: 'Non-Coffee',
     description: 'Roasted Japanese green tea',
     price: 30000,
-    image: '/src/assets/menu/non-coffee/hojicha.png'
+    image: '/menu/non-coffee/hojicha.png'
   },
   {
     id: 10,
@@ -80,7 +80,7 @@ export const menuItems = [
     category: 'Non-Coffee',
     description: 'Rich and creamy hot chocolate',
     price: 28000,
-    image: '/src/assets/menu/non-coffee/chocolate.png'
+    image: '/menu/non-coffee/chocolate.png'
   },
   {
     id: 11,
@@ -88,7 +88,7 @@ export const menuItems = [
     category: 'Non-Coffee',
     description: 'Sweet red velvet latte',
     price: 30000,
-    image: '/src/assets/menu/non-coffee/red-velvet.png'
+    image: '/menu/non-coffee/red-velvet.png'
   },
   {
     id: 12,
@@ -96,7 +96,7 @@ export const menuItems = [
     category: 'Non-Coffee',
     description: 'Beautiful blue butterfly pea flower tea',
     price: 28000,
-    image: '/src/assets/menu/non-coffee/blue-butterfly.png'
+    image: '/menu/non-coffee/blue-butterfly.png'
   },
   {
     id: 13,
@@ -104,7 +104,7 @@ export const menuItems = [
     category: 'Non-Coffee',
     description: 'Special red fruit blend',
     price: 30000,
-    image: '/src/assets/menu/non-coffee/redrum.png'
+    image: '/menu/non-coffee/redrum.png'
   },
 
   // Ramen
@@ -114,7 +114,7 @@ export const menuItems = [
     category: 'Ramen',
     description: 'Creamy chicken broth ramen',
     price: 35000,
-    image: '/src/assets/menu/ramen/ramen-toripaitan.jpeg'
+    image: '/menu/ramen/ramen-toripaitan.jpeg'
   },
   {
     id: 15,
@@ -122,7 +122,7 @@ export const menuItems = [
     category: 'Ramen',
     description: 'Chicken broth with soy sauce',
     price: 35000,
-    image: '/src/assets/menu/ramen/ramen-toripaitan-shoyu.jpeg'
+    image: '/menu/ramen/ramen-toripaitan-shoyu.jpeg'
   },
   {
     id: 16,
@@ -130,7 +130,7 @@ export const menuItems = [
     category: 'Ramen',
     description: 'Traditional miso broth ramen',
     price: 35000,
-    image: '/src/assets/menu/ramen/ramen-miso.jpeg'
+    image: '/menu/ramen/ramen-miso.jpeg'
   },
   {
     id: 17,
@@ -138,7 +138,7 @@ export const menuItems = [
     category: 'Ramen',
     description: 'Clear soy sauce broth',
     price: 35000,
-    image: '/src/assets/menu/ramen/ramen-soyuchintan.jpeg'
+    image: '/menu/ramen/ramen-soyuchintan.jpeg'
   },
   {
     id: 18,
@@ -146,7 +146,7 @@ export const menuItems = [
     category: 'Ramen',
     description: 'Spicy sesame paste ramen',
     price: 38000,
-    image: '/src/assets/menu/ramen/ramen-tantan-men.jpeg'
+    image: '/menu/ramen/ramen-tantan-men.jpeg'
   },
   {
     id: 19,
@@ -154,7 +154,7 @@ export const menuItems = [
     category: 'Ramen',
     description: 'Japanese curry ramen',
     price: 38000,
-    image: '/src/assets/menu/ramen/ramen-curry.jpeg'
+    image: '/menu/ramen/ramen-curry.jpeg'
   },
 
   // Rice Bowl
@@ -164,7 +164,7 @@ export const menuItems = [
     category: 'Rice Bowl',
     description: 'Grilled chicken with teriyaki sauce',
     price: 30000,
-    image: '/src/assets/menu/rice-bowl/chicken-teriyaki.jpeg'
+    image: '/menu/rice-bowl/chicken-teriyaki.jpeg'
   },
   {
     id: 21,
@@ -172,7 +172,7 @@ export const menuItems = [
     category: 'Rice Bowl',
     description: 'Fried chicken with tartar sauce',
     price: 32000,
-    image: '/src/assets/menu/rice-bowl/chicken-nanban.jpeg'
+    image: '/menu/rice-bowl/chicken-nanban.jpeg'
   },
   {
     id: 22,
@@ -180,7 +180,7 @@ export const menuItems = [
     category: 'Rice Bowl',
     description: 'Chicken with spicy mentaiko sauce',
     price: 32000,
-    image: '/src/assets/menu/rice-bowl/chicken-mentai.jpeg'
+    image: '/menu/rice-bowl/chicken-mentai.jpeg'
   },
   {
     id: 23,
@@ -188,7 +188,7 @@ export const menuItems = [
     category: 'Rice Bowl',
     description: 'Japanese style chicken curry',
     price: 32000,
-    image: '/src/assets/menu/rice-bowl/chicken-curry.jpeg'
+    image: '/menu/rice-bowl/chicken-curry.jpeg'
   },
 
   // Snack
@@ -198,7 +198,7 @@ export const menuItems = [
     category: 'Snack',
     description: 'Crispy golden french fries',
     price: 15000,
-    image: '/src/assets/menu/snack/frenchfries.png'
+    image: '/menu/snack/frenchfries.png'
   },
   {
     id: 25,
@@ -206,7 +206,7 @@ export const menuItems = [
     category: 'Snack',
     description: 'Japanese pan-fried dumplings',
     price: 18000,
-    image: '/src/assets/menu/snack/gyoza.png'
+    image: '/menu/snack/gyoza.png'
   },
   {
     id: 26,
@@ -214,7 +214,7 @@ export const menuItems = [
     category: 'Snack',
     description: 'Crispy fried wonton',
     price: 18000,
-    image: '/src/assets/menu/snack/friedwonton.png'
+    image: '/menu/snack/friedwonton.png'
   },
   {
     id: 27,
@@ -222,7 +222,7 @@ export const menuItems = [
     category: 'Snack',
     description: 'Crispy fried squid rings',
     price: 22000,
-    image: '/src/assets/menu/snack/friedcalamari.png'
+    image: '/menu/snack/friedcalamari.png'
   },
   {
     id: 28,
@@ -230,6 +230,6 @@ export const menuItems = [
     category: 'Snack',
     description: 'Indonesian fried meatballs',
     price: 18000,
-    image: '/src/assets/menu/snack/baksogoreng.png'
+    image: '/menu/snack/baksogoreng.png'
   }
 ];

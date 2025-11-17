@@ -12,7 +12,14 @@ export const useCart = () => {
   const openAddToCartModal = (item) => {
     setSelectedItem(item);
     setSugarLevel('100');
-    setSelectedAdditionals([]);
+    
+    // For Manual Brew, default to Java Frinsa (first bean option)
+    if (item.name === 'Manual Brew') {
+      setSelectedAdditionals(['java-frinsa']);
+    } else {
+      setSelectedAdditionals([]);
+    }
+    
     setItemNotes('');
     setShowAddToCartModal(true);
   };
@@ -25,8 +32,14 @@ export const useCart = () => {
     setItemNotes('');
   };
 
-  const toggleAdditional = (additionalId) => {
+  const toggleAdditional = (additionalId, isSingleChoice = false) => {
     setSelectedAdditionals(prev => {
+      // For single choice (radio button), replace entire selection with new choice
+      if (isSingleChoice) {
+        return [additionalId];
+      }
+      
+      // For multiple choice (checkbox), toggle the selection
       if (prev.includes(additionalId)) {
         return prev.filter(id => id !== additionalId);
       } else {

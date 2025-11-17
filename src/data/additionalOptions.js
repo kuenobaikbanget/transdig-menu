@@ -8,6 +8,13 @@ export const beverageAdditionalOptions = [
   { id: 'hazelnut-syrup', name: 'Hazelnut Syrup', price: 4000 },
 ];
 
+// Coffee Beans options untuk Manual Brew (pilihan wajib, single choice)
+export const coffeeBeans = [
+  { id: 'java-frinsa', name: 'Java Frinsa', price: 0 },
+  { id: 'ethiopia', name: 'Ethiopia', price: 8000 },
+  { id: 'colombia', name: 'Colombia', price: 14000 },
+];
+
 // Additional options untuk Ramen
 export const ramenAdditionalOptions = [
   { id: 'extra-noodles', name: 'Extra Noodles', price: 13000 },
@@ -32,8 +39,17 @@ export const snackAdditionalOptions = [
 // Backward compatibility - keep original export
 export const additionalOptions = beverageAdditionalOptions;
 
-// Helper function to get additional options by category
-export const getAdditionalOptionsByCategory = (category) => {
+// Helper function to get additional options by category or item name
+export const getAdditionalOptionsByCategory = (category, itemName = '') => {
+  // Special case for Manual Brew
+  if (itemName === 'Manual Brew') {
+    return coffeeBeans;
+  }
+
+  if (itemName === 'Japanese Iced Coffee') {
+    return coffeeBeans;
+  }
+  
   switch (category) {
     case 'Coffee':
     case 'Non-Coffee':
@@ -52,8 +68,15 @@ export const getAdditionalOptionsByCategory = (category) => {
 // Categories that don't need sugar level
 export const categoriesWithoutSugarLevel = ['Ramen', 'Rice Bowl', 'Snack'];
 
-// Helper function to check if category needs sugar level
-export const categoryNeedsSugarLevel = (category) => {
+// Items that don't need sugar level (specific items)
+export const itemsWithoutSugarLevel = ['Manual Brew', 'Japanese Iced Coffee'];
+
+// Helper function to check if category/item needs sugar level
+export const categoryNeedsSugarLevel = (category, itemName = '') => {
+  // Check if specific item doesn't need sugar level
+  if (itemsWithoutSugarLevel.includes(itemName)) {
+    return false;
+  }
   return !categoriesWithoutSugarLevel.includes(category);
 };
 

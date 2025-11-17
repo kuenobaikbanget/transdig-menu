@@ -22,9 +22,12 @@ const AddToCartModal = ({
 
   if (!isOpen || !selectedItem) return null;
 
-  // Get additional options based on item category
-  const availableAdditionals = getAdditionalOptionsByCategory(selectedItem.category);
-  const showSugarLevel = categoryNeedsSugarLevel(selectedItem.category);
+  // Get additional options based on item category and name
+  const availableAdditionals = getAdditionalOptionsByCategory(selectedItem.category, selectedItem.name);
+  const showSugarLevel = categoryNeedsSugarLevel(selectedItem.category, selectedItem.name);
+  
+  // Check if this is Manual Brew (requires bean selection, single choice)
+  const isManualBrew = selectedItem.name === 'Manual Brew';
 
   const calculateTotalPrice = () => {
     let total = selectedItem.price;
@@ -142,20 +145,25 @@ const AddToCartModal = ({
             </div>
           )}
 
-          {/* Additional Options */}
+          {/* Bean Selection for Manual Brew or Additional Options for others */}
           {availableAdditionals.length > 0 && (
             <div className="cart-modal-section">
-              <h4 className="cart-modal-section-title">Additional</h4>
+              <h4 className="cart-modal-section-title">
+                {isManualBrew ? 'Pilih Beans (Wajib)' : 'Additional'}
+              </h4>
               <div className="additional-options">
                 {availableAdditionals.map(option => (
                   <label key={option.id} className="additional-option">
                     <input
-                      type="checkbox"
+                      type={isManualBrew ? 'radio' : 'checkbox'}
+                      name={isManualBrew ? 'coffee-bean' : undefined}
                       checked={selectedAdditionals.includes(option.id)}
-                      onChange={() => toggleAdditional(option.id)}
+                      onChange={() => toggleAdditional(option.id, isManualBrew)}
                     />
                     <span className="additional-name">{option.name}</span>
-                    <span className="additional-price">+{formatPrice(option.price)}</span>
+                    <span className="additional-price">
+                      {option.price === 0 ? 'Default' : `+${formatPrice(option.price)}`}
+                    </span>
                   </label>
                 ))}
               </div>
@@ -176,7 +184,6 @@ const AddToCartModal = ({
 
           {/* Quantity */}
           <div className="cart-modal-section">
-            <h4 className="cart-modal-section-title">Kuantitas</h4>
             <div className="quantity-control">
               <button 
                 className="quantity-btn"
