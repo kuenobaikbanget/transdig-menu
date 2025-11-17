@@ -1,6 +1,12 @@
+import { useState } from 'react';
 import { formatPrice } from '../../utils/formatters';
 
 const CartModal = ({ isOpen, onClose, cart, onRemoveItem, onUpdateQuantity }) => {
+  const [tableNumber, setTableNumber] = useState('');
+  
+  // Generate table numbers (1-20 as example, adjust as needed)
+  const tableNumbers = Array.from({ length: 20 }, (_, i) => i + 1);
+  
   if (!isOpen) return null;
 
   const calculateGrandTotal = () => {
@@ -185,6 +191,25 @@ const CartModal = ({ isOpen, onClose, cart, onRemoveItem, onUpdateQuantity }) =>
 
         {cart.length > 0 && (
           <div className="cart-modal-footer">
+            <div className="table-number-section">
+              <label htmlFor="table-number" className="table-number-label">
+                <span>Nomor Meja</span>
+              </label>
+              <select
+                id="table-number"
+                className="table-number-select"
+                value={tableNumber}
+                onChange={(e) => setTableNumber(e.target.value)}
+              >
+                <option value="">Pilih nomor meja...</option>
+                {tableNumbers.map(num => (
+                  <option key={num} value={num}>
+                    Meja {num}
+                  </option>
+                ))}
+              </select>
+            </div>
+            
             <div className="cart-summary">
               <div className="cart-summary-row">
                 <span>Total Item:</span>
@@ -195,7 +220,10 @@ const CartModal = ({ isOpen, onClose, cart, onRemoveItem, onUpdateQuantity }) =>
                 <span className="cart-summary-price">{formatPrice(calculateGrandTotal())}</span>
               </div>
             </div>
-            <button className="cart-checkout-btn">
+            <button 
+              className="cart-checkout-btn"
+              disabled={!tableNumber}
+            >
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 width="20" 
