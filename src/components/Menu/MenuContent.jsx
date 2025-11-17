@@ -1,5 +1,6 @@
 import CategoryNav from './CategoryNav';
 import ResultsHeader from './ResultsHeader';
+import ResultsInfo from './ResultsInfo';
 import MenuCard from './MenuCard';
 
 const MenuContent = ({ 
@@ -10,12 +11,14 @@ const MenuContent = ({
 }) => {
   return (
     <div className="menu-content">
+      <ResultsHeader />
+
       <CategoryNav 
         activeCategory={filters.activeCategory}
         onCategoryChange={onCategoryChange}
       />
 
-      <ResultsHeader 
+      <ResultsInfo 
         itemCount={filters.filteredAndSortedItems.length}
         sortBy={filters.sortBy}
         onSortChange={filters.setSortBy}

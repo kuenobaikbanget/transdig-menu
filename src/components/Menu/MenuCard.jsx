@@ -26,7 +26,11 @@ const MenuCard = ({ item, isInCart, quantity, onAddToCart, menuItemRef }) => {
       )}
       
       <div className="menu-card-image">
-        <span className="image-placeholder">{item.image}</span>
+        {item.image.startsWith('/') ? (
+          <img src={item.image} alt={item.name} className="menu-image" />
+        ) : (
+          <span className="image-placeholder">{item.image}</span>
+        )}
       </div>
       
       <div className="menu-card-content">

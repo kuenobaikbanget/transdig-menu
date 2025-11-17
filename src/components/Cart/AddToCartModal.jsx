@@ -80,7 +80,13 @@ const AddToCartModal = ({
         <div className="cart-modal-content">
           {/* Item Info */}
           <div className="cart-modal-item-info">
-            <div className="cart-modal-item-icon">{selectedItem.image}</div>
+            <div className="cart-modal-item-icon">
+              {selectedItem.image.startsWith('/') ? (
+                <img src={selectedItem.image} alt={selectedItem.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }} />
+              ) : (
+                selectedItem.image
+              )}
+            </div>
             <div>
               <h3 className="cart-modal-item-name">{selectedItem.name}</h3>
               <p className="cart-modal-item-description">{selectedItem.description}</p>
