@@ -160,6 +160,7 @@ const PaymentPage = ({
             <h2 className="payment-section-title">Metode Pembayaran</h2>
             
             <div className="payment-methods">
+              {/* QRIS */}
               <label className="payment-method-option">
                 <input
                   type="radio"
@@ -169,27 +170,92 @@ const PaymentPage = ({
                   onChange={(e) => setPaymentMethod(e.target.value)}
                 />
                 <div className="payment-method-content">
-                  <div className="payment-method-icon">
-                    <svg 
-                      xmlns="http://www.w3.org/2000/svg" 
-                      width="32" 
-                      height="32" 
-                      viewBox="0 0 24 24" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    >
-                      <rect x="3" y="3" width="7" height="7"></rect>
-                      <rect x="14" y="3" width="7" height="7"></rect>
-                      <rect x="14" y="14" width="7" height="7"></rect>
-                      <rect x="3" y="14" width="7" height="7"></rect>
-                    </svg>
+                  <div className="payment-method-logo">
+                    <img src="/payment/QRIS.webp" alt="QRIS" />
                   </div>
                   <div className="payment-method-info">
                     <span className="payment-method-name">QRIS</span>
-                    <span className="payment-method-desc">Scan & Pay dengan aplikasi e-wallet</span>
+                    <span className="payment-method-desc">Semua e-wallet & mobile banking</span>
+                  </div>
+                </div>
+              </label>
+
+              {/* GoPay */}
+              <label className="payment-method-option">
+                <input
+                  type="radio"
+                  name="payment-method"
+                  value="gopay"
+                  checked={paymentMethod === 'gopay'}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                />
+                <div className="payment-method-content">
+                  <div className="payment-method-logo">
+                    <img src="/payment/GOPAY.webp" alt="GoPay" />
+                  </div>
+                  <div className="payment-method-info">
+                    <span className="payment-method-name">GoPay</span>
+                    <span className="payment-method-desc">Bayar pakai saldo GoPay</span>
+                  </div>
+                </div>
+              </label>
+
+              {/* OVO */}
+              <label className="payment-method-option">
+                <input
+                  type="radio"
+                  name="payment-method"
+                  value="ovo"
+                  checked={paymentMethod === 'ovo'}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                />
+                <div className="payment-method-content">
+                  <div className="payment-method-logo">
+                    <img src="/payment/OVO.webp" alt="OVO" />
+                  </div>
+                  <div className="payment-method-info">
+                    <span className="payment-method-name">OVO</span>
+                    <span className="payment-method-desc">Bayar pakai saldo OVO</span>
+                  </div>
+                </div>
+              </label>
+
+              {/* DANA */}
+              <label className="payment-method-option">
+                <input
+                  type="radio"
+                  name="payment-method"
+                  value="dana"
+                  checked={paymentMethod === 'dana'}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                />
+                <div className="payment-method-content">
+                  <div className="payment-method-logo">
+                    <img src="/payment/DANA.webp" alt="DANA" />
+                  </div>
+                  <div className="payment-method-info">
+                    <span className="payment-method-name">DANA</span>
+                    <span className="payment-method-desc">Bayar pakai saldo DANA</span>
+                  </div>
+                </div>
+              </label>
+
+              {/* ShopeePay */}
+              <label className="payment-method-option">
+                <input
+                  type="radio"
+                  name="payment-method"
+                  value="shopeepay"
+                  checked={paymentMethod === 'shopeepay'}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                />
+                <div className="payment-method-content">
+                  <div className="payment-method-logo">
+                    <img src="/payment/SHOPEE_PAY.webp" alt="ShopeePay" />
+                  </div>
+                  <div className="payment-method-info">
+                    <span className="payment-method-name">ShopeePay</span>
+                    <span className="payment-method-desc">Bayar pakai saldo ShopeePay</span>
                   </div>
                 </div>
               </label>
