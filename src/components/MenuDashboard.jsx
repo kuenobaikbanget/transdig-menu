@@ -1,5 +1,3 @@
-import '../styles/MenuDashboard.css';
-import '../styles/PaymentPage.css';
 import { useState, useEffect } from 'react';
 
 // Import data
