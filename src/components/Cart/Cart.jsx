@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { formatPrice } from '../../utils/formatters';
 
-const CartModal = ({ isOpen, onClose, cart, onRemoveItem, onUpdateQuantity }) => {
+const CartModal = ({ isOpen, onClose, cart, onRemoveItem, onUpdateQuantity, onProceedToPayment }) => {
   const [tableNumber, setTableNumber] = useState('');
   
   // Generate table numbers (1-20 as example, adjust as needed)
@@ -15,6 +15,14 @@ const CartModal = ({ isOpen, onClose, cart, onRemoveItem, onUpdateQuantity }) =>
 
   const getTotalQuantity = () => {
     return cart.reduce((total, item) => total + item.quantity, 0);
+  };
+
+  const handleProceedToPayment = () => {
+    if (!tableNumber) {
+      alert('Mohon pilih nomor meja terlebih dahulu');
+      return;
+    }
+    onProceedToPayment(tableNumber);
   };
 
   return (
@@ -222,6 +230,7 @@ const CartModal = ({ isOpen, onClose, cart, onRemoveItem, onUpdateQuantity }) =>
             </div>
             <button 
               className="cart-checkout-btn"
+              onClick={handleProceedToPayment}
               disabled={!tableNumber}
             >
               <svg 

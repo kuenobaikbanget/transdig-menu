@@ -1,4 +1,6 @@
 import '../styles/MenuDashboard.css';
+import '../styles/PaymentPage.css';
+import { useState, useEffect } from 'react';
 
 // Import data
 import { menuItems } from '../data/menuItems';
@@ -15,8 +17,14 @@ import Sidebar from './Sidebar/Sidebar';
 import MenuContent from './Menu/MenuContent';
 import AddToCartModal from './Cart/AddToCart';
 import CartModal from './Cart/Cart';
+import PaymentPage from './Payment/PaymentPage';
+import OrderProcessing from './Payment/OrderProcessing';
 
 const MenuDashboard = () => {
+  const [showPaymentPage, setShowPaymentPage] = useState(false);
+  const [showProcessing, setShowProcessing] = useState(false);
+  const [selectedTableNumber, setSelectedTableNumber] = useState('');
+
   // Custom hooks
   const cart = useCart();
   const filters = useFilters(menuItems);
@@ -25,6 +33,55 @@ const MenuDashboard = () => {
   const handleCategoryChange = (category) => {
     filters.setActiveCategory(category);
   };
+
+  const handleProceedToPayment = (tableNumber) => {
+    setSelectedTableNumber(tableNumber);
+    cart.closeCartModal();
+    
+    // Show loading animation
+    setShowProcessing(true);
+    
+    // Simulate order processing (2 seconds)
+    setTimeout(() => {
+      setShowProcessing(false);
+      setShowPaymentPage(true);
+    }, 2000);
+  };
+
+  const handleBackFromPayment = () => {
+    setShowPaymentPage(false);
+    setShowProcessing(false);
+    cart.openCartModal();
+  };
+
+  const handleConfirmPayment = (orderData) => {
+    console.log('Order confirmed:', orderData);
+    // TODO: Implement payment confirmation logic (send to backend, etc.)
+    alert(`Pesanan atas nama ${orderData.customerName} telah dikonfirmasi!`);
+    
+    // Reset state
+    setShowPaymentPage(false);
+    setShowProcessing(false);
+    setSelectedTableNumber('');
+    // You might want to clear cart here as well
+  };
+
+  // Show processing animation
+  if (showProcessing) {
+    return <OrderProcessing />;
+  }
+
+  // Show payment page if active
+  if (showPaymentPage) {
+    return (
+      <PaymentPage 
+        cart={cart.cart}
+        tableNumber={selectedTableNumber}
+        onBack={handleBackFromPayment}
+        onConfirmPayment={handleConfirmPayment}
+      />
+    );
+  }
 
   return (
     <div className="menu-dashboard">
@@ -80,6 +137,7 @@ const MenuDashboard = () => {
         cart={cart.cart}
         onRemoveItem={cart.removeFromCart}
         onUpdateQuantity={cart.updateCartItemQuantity}
+        onProceedToPayment={handleProceedToPayment}
       />
     </div>
   );
