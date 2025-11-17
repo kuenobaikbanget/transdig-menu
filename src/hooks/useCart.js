@@ -141,15 +141,23 @@ export const useCart = () => {
   };
 
   const getTotalItems = () => {
-    return cart.length;
+    // Total quantity across all cart lines
+    return cart.reduce((sum, item) => sum + item.quantity, 0);
   };
+
+  // (optional) keep old unique count if needed
+  const getTotalUniqueItems = () => cart.length;
 
   const isItemInCart = (itemId) => {
     return cart.some(cartItem => cartItem.id === itemId);
   };
 
   const getItemQuantityInCart = (itemId) => {
-    return cart.filter(cartItem => cartItem.id === itemId).length;
+    // Sum quantities for matching id (even across different configurations)
+    return cart.reduce(
+      (sum, cartItem) => cartItem.id === itemId ? sum + cartItem.quantity : sum,
+      0
+    );
   };
 
   return {
@@ -171,6 +179,7 @@ export const useCart = () => {
     removeFromCart,
     updateCartItemQuantity,
     getTotalItems,
+    getTotalUniqueItems, // optional
     isItemInCart,
     getItemQuantityInCart,
   };
