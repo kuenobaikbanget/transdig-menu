@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { formatPrice } from '../../utils/formatters';
-import { additionalOptions, sugarLevels } from '../../data/additionalOptions';
+import { 
+  getAdditionalOptionsByCategory, 
+  categoryNeedsSugarLevel,
+  sugarLevels 
+} from '../../data/additionalOptions';
 
 const AddToCartModal = ({ 
   isOpen, 
@@ -18,11 +22,15 @@ const AddToCartModal = ({
 
   if (!isOpen || !selectedItem) return null;
 
+  // Get additional options based on item category
+  const availableAdditionals = getAdditionalOptionsByCategory(selectedItem.category);
+  const showSugarLevel = categoryNeedsSugarLevel(selectedItem.category);
+
   const calculateTotalPrice = () => {
     let total = selectedItem.price;
     
     selectedAdditionals.forEach(additionalId => {
-      const additional = additionalOptions.find(opt => opt.id === additionalId);
+      const additional = availableAdditionals.find(opt => opt.id === additionalId);
       if (additional) {
         total += additional.price;
       }
@@ -55,9 +63,9 @@ const AddToCartModal = ({
       price: selectedItem.price,
       image: selectedItem.image,
       quantity: quantity,
-      sugarLevel: sugarLevel,
+      sugarLevel: showSugarLevel ? sugarLevel : 'N/A',
       additionalOptions: selectedAdditionals.map(id => {
-        const option = additionalOptions.find(opt => opt.id === id);
+        const option = availableAdditionals.find(opt => opt.id === id);
         return { id: option.id, name: option.name, price: option.price };
       }),
       notes: itemNotes,
@@ -116,39 +124,43 @@ const AddToCartModal = ({
             </div>
           </div>
 
-          {/* Sugar Level */}
-          <div className="cart-modal-section">
-            <h4 className="cart-modal-section-title">Sugar Level</h4>
-            <div className="sugar-level-options">
-              {sugarLevels.map(level => (
-                <button
-                  key={level.value}
-                  className={`sugar-level-btn ${sugarLevel === level.value ? 'active' : ''}`}
-                  onClick={() => setSugarLevel(level.value)}
-                >
-                  {level.label}
-                </button>
-              ))}
+          {/* Sugar Level - Only show for beverages */}
+          {showSugarLevel && (
+            <div className="cart-modal-section">
+              <h4 className="cart-modal-section-title">Sugar Level</h4>
+              <div className="sugar-level-options">
+                {sugarLevels.map(level => (
+                  <button
+                    key={level.value}
+                    className={`sugar-level-btn ${sugarLevel === level.value ? 'active' : ''}`}
+                    onClick={() => setSugarLevel(level.value)}
+                  >
+                    {level.label}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Additional Options */}
-          <div className="cart-modal-section">
-            <h4 className="cart-modal-section-title">Additional</h4>
-            <div className="additional-options">
-              {additionalOptions.map(option => (
-                <label key={option.id} className="additional-option">
-                  <input
-                    type="checkbox"
-                    checked={selectedAdditionals.includes(option.id)}
-                    onChange={() => toggleAdditional(option.id)}
-                  />
-                  <span className="additional-name">{option.name}</span>
-                  <span className="additional-price">+{formatPrice(option.price)}</span>
-                </label>
-              ))}
+          {availableAdditionals.length > 0 && (
+            <div className="cart-modal-section">
+              <h4 className="cart-modal-section-title">Additional</h4>
+              <div className="additional-options">
+                {availableAdditionals.map(option => (
+                  <label key={option.id} className="additional-option">
+                    <input
+                      type="checkbox"
+                      checked={selectedAdditionals.includes(option.id)}
+                      onChange={() => toggleAdditional(option.id)}
+                    />
+                    <span className="additional-name">{option.name}</span>
+                    <span className="additional-price">+{formatPrice(option.price)}</span>
+                  </label>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Notes */}
           <div className="cart-modal-section">

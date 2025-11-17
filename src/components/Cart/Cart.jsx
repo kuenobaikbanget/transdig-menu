@@ -147,7 +147,9 @@ const CartModal = ({ isOpen, onClose, cart, onRemoveItem, onUpdateQuantity }) =>
                           </button>
                         </div>
                       </div>
-                      <p className="cart-item-sugar">Gula: {item.sugarLevel}%</p>
+                      {item.sugarLevel && item.sugarLevel !== 'N/A' && (
+                        <p className="cart-item-sugar">Gula: {item.sugarLevel}%</p>
+                      )}
                     </div>
                     
                     {item.additionalOptions.length > 0 && (
