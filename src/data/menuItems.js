@@ -2,7 +2,7 @@ export const menuItems = [
   // Coffee
   {
     id: 1,
-    name: 'Americano',
+    name: 'Iced Americano',
     category: 'Coffee',
     description: 'Classic espresso diluted with hot water',
     price: 22000,

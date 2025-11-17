@@ -1,7 +1,7 @@
 import SearchButton from './SearchButton';
 import CartButton from './CartButton';
 
-const Header = ({ onToggleSearch, totalItems }) => {
+const Header = ({ onToggleSearch, onToggleCart, totalItems }) => {
   return (
     <header className="menu-header">
       <div className="header-content">
@@ -14,7 +14,7 @@ const Header = ({ onToggleSearch, totalItems }) => {
             <SearchButton onClick={onToggleSearch} />
           </div>
 
-          <CartButton totalItems={totalItems} />
+          <CartButton totalItems={totalItems} onClick={onToggleCart} />
         </div>
       </div>
     </header>

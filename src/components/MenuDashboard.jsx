@@ -13,7 +13,8 @@ import Header from './Header/Header';
 import SearchModal from './Search/SearchModal';
 import Sidebar from './Sidebar/Sidebar';
 import MenuContent from './Menu/MenuContent';
-import AddToCartModal from './Cart/AddToCartModal';
+import AddToCartModal from './Cart/AddToCart';
+import CartModal from './Cart/Cart';
 
 const MenuDashboard = () => {
   // Custom hooks
@@ -30,6 +31,7 @@ const MenuDashboard = () => {
       {/* Header */}
       <Header 
         onToggleSearch={search.toggleHeaderSearch}
+        onToggleCart={cart.openCartModal}
         totalItems={cart.getTotalItems()}
       />
 
@@ -69,6 +71,15 @@ const MenuDashboard = () => {
         itemNotes={cart.itemNotes}
         setItemNotes={cart.setItemNotes}
         onAddToCart={cart.addToCart}
+      />
+
+      {/* Cart Modal */}
+      <CartModal 
+        isOpen={cart.showCartModal}
+        onClose={cart.closeCartModal}
+        cart={cart.cart}
+        onRemoveItem={cart.removeFromCart}
+        onUpdateQuantity={cart.updateCartItemQuantity}
       />
     </div>
   );

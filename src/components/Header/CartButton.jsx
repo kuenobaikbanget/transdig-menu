@@ -1,6 +1,6 @@
-const CartButton = ({ totalItems }) => {
+const CartButton = ({ totalItems, onClick }) => {
   return (
-    <button className="icon-btn cart-btn-separate">
+    <button className="icon-btn cart-btn-separate" onClick={onClick}>
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
         width="20" 

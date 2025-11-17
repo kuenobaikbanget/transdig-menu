@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { formatPrice } from '../../utils/formatters';
 import { additionalOptions, sugarLevels } from '../../data/additionalOptions';
 
@@ -13,6 +14,8 @@ const AddToCartModal = ({
   setItemNotes,
   onAddToCart
 }) => {
+  const [quantity, setQuantity] = useState(1);
+
   if (!isOpen || !selectedItem) return null;
 
   const calculateTotalPrice = () => {
@@ -25,7 +28,24 @@ const AddToCartModal = ({
       }
     });
     
-    return total;
+    return total * quantity;
+  };
+
+  const handleIncreaseQuantity = () => {
+    setQuantity(prev => prev + 1);
+  };
+
+  const handleDecreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(prev => prev - 1);
+    }
+  };
+
+  const handleQuantityChange = (e) => {
+    const value = parseInt(e.target.value);
+    if (value >= 1) {
+      setQuantity(value);
+    }
   };
 
   const handleAddToCart = () => {
@@ -34,6 +54,7 @@ const AddToCartModal = ({
       name: selectedItem.name,
       price: selectedItem.price,
       image: selectedItem.image,
+      quantity: quantity,
       sugarLevel: sugarLevel,
       additionalOptions: selectedAdditionals.map(id => {
         const option = additionalOptions.find(opt => opt.id === id);
@@ -44,6 +65,7 @@ const AddToCartModal = ({
     };
     
     onAddToCart(cartItem);
+    setQuantity(1); // Reset quantity after adding to cart
   };
 
   return (
@@ -138,6 +160,58 @@ const AddToCartModal = ({
               onChange={(e) => setItemNotes(e.target.value)}
               rows="3"
             />
+          </div>
+
+          {/* Quantity */}
+          <div className="cart-modal-section">
+            <h4 className="cart-modal-section-title">Kuantitas</h4>
+            <div className="quantity-control">
+              <button 
+                className="quantity-btn"
+                onClick={handleDecreaseQuantity}
+                disabled={quantity <= 1}
+              >
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  width="20" 
+                  height="20" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </button>
+              <input 
+                type="number" 
+                className="quantity-input"
+                value={quantity}
+                onChange={handleQuantityChange}
+                min="1"
+              />
+              <button 
+                className="quantity-btn"
+                onClick={handleIncreaseQuantity}
+              >
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  width="20" 
+                  height="20" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
 
