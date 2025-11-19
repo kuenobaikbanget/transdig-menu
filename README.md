@@ -1,7 +1,7 @@
 # Transdig Menu - Sistem Menu Digital & Pemesanan
 
 <div align="center">
-  <img src="public/ss.png" alt="preview" width="120" style="border-radius:50%;margin:1rem 0;" />
+  <img src="public/ss.png" alt="preview" width="800" style="margin:1rem 0;" />
   <p><b>Preview Website</b></p>
 </div>
 
@@ -12,7 +12,7 @@
 - JavaScript
 - CSS
 
-## Prasyarat
+## Sebelum Instalasi
 
 Sebelum memulai, pastikan Anda telah menginstal:
 - Node.js (versi 14.0 atau lebih tinggi)
