@@ -52,19 +52,6 @@ const PaymentSuccess = ({ orderData, onBackToMenu }) => {
         <div className="success-animation">
           <div className="success-checkmark">
             <svg 
-              className="checkmark-circle"
-              xmlns="http://www.w3.org/2000/svg" 
-              viewBox="0 0 52 52"
-            >
-              <circle 
-                className="checkmark-circle-path" 
-                cx="26" 
-                cy="26" 
-                r="25" 
-                fill="none"
-              />
-            </svg>
-            <svg 
               className="checkmark-check"
               xmlns="http://www.w3.org/2000/svg" 
               viewBox="0 0 52 52"
@@ -82,7 +69,7 @@ const PaymentSuccess = ({ orderData, onBackToMenu }) => {
         <div className="success-header">
           <h1 className="success-title">Pembayaran Berhasil!</h1>
           <p className="success-subtitle">
-            Terima kasih atas pesanan Anda
+            Terima kasih, pesanan Anda telah kami terima
           </p>
         </div>
 
@@ -143,7 +130,16 @@ const PaymentSuccess = ({ orderData, onBackToMenu }) => {
                     {item.image.startsWith('/') ? (
                       <img src={item.image} alt={item.name} />
                     ) : (
-                      <span className="success-order-emoji">{item.image}</span>
+                      /* Fallback Icon if image is not a path (replaces emoji) */
+                      <div className="success-placeholder-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                          <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                          <line x1="6" y1="1" x2="6" y2="4"></line>
+                          <line x1="10" y1="1" x2="10" y2="4"></line>
+                          <line x1="14" y1="1" x2="14" y2="4"></line>
+                        </svg>
+                      </div>
                     )}
                   </div>
                   <div className="success-order-details">
