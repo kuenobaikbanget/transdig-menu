@@ -1,8 +1,9 @@
 # Transdig Menu - Sistem Menu Digital & Pemesanan
 
-Sistem menu digital dan pemesanan yang modern dan responsif dibangun dengan React dan Vite. Aplikasi ini memungkinkan pelanggan untuk melihat menu, menyesuaikan pesanan, dan menyelesaikan pembayaran dengan mudah.
-
-![Preview](ss.png)
+<div align="center">
+  <img src="public/ss.png" alt="preview" width="120" style="border-radius:50%;margin:1rem 0;" />
+  <p><b>Preview Website</b></p>
+</div>
 
 ## Tech Stack
 
@@ -37,10 +38,9 @@ npm install
 npm run dev
 ```
 
-4. Buka browser Anda dan navigasi ke
+4. Buka browser Anda dan pergi ke
 ```
 http://localhost:5173
 ```
 
-Aplikasi sekarang sudah berjalan di mesin lokal Anda.
 
