@@ -17,11 +17,14 @@ import AddToCartModal from './Cart/AddToCart';
 import CartModal from './Cart/Cart';
 import PaymentPage from './Payment/PaymentPage';
 import OrderProcessing from './Payment/OrderProcessing';
+import PaymentSuccess from './Successful/PaymentSuccess';
 
 const MenuDashboard = () => {
   const [showPaymentPage, setShowPaymentPage] = useState(false);
   const [showProcessing, setShowProcessing] = useState(false);
+  const [showPaymentSuccess, setShowPaymentSuccess] = useState(false);
   const [selectedTableNumber, setSelectedTableNumber] = useState('');
+  const [orderData, setOrderData] = useState(null);
 
   // Custom hooks
   const cart = useCart();
@@ -54,19 +57,42 @@ const MenuDashboard = () => {
 
   const handleConfirmPayment = (orderData) => {
     console.log('Order confirmed:', orderData);
-    // TODO: Implement payment confirmation logic (send to backend, etc.)
-    alert(`Pesanan atas nama ${orderData.customerName} telah dikonfirmasi!`);
     
-    // Reset state
+    // Save order data
+    setOrderData(orderData);
+    
+    // Hide payment page and show success page
+    setShowPaymentPage(false);
+    setShowPaymentSuccess(true);
+  };
+
+  const handleBackToMenu = () => {
+    // Reset all states
+    setShowPaymentSuccess(false);
     setShowPaymentPage(false);
     setShowProcessing(false);
     setSelectedTableNumber('');
-    // You might want to clear cart here as well
+    setOrderData(null);
+    
+    // Clear cart
+    cart.cart.forEach(item => {
+      cart.removeFromCart(item.id);
+    });
   };
 
   // Show processing animation
   if (showProcessing) {
     return <OrderProcessing />;
+  }
+
+  // Show payment success page
+  if (showPaymentSuccess && orderData) {
+    return (
+      <PaymentSuccess 
+        orderData={orderData}
+        onBackToMenu={handleBackToMenu}
+      />
+    );
   }
 
   // Show payment page if active
