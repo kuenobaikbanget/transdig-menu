@@ -1,7 +1,7 @@
 const SearchButton = ({ onClick }) => {
   return (
     <button 
-      className="icon-btn search-toggle-btn"
+      className="search-toggle-btn"
       onClick={onClick}
       title="Cari menu"
     >

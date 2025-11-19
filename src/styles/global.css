@@ -460,9 +460,9 @@ body {
   display: flex;
   align-items: center;
   gap: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 25px;
-  padding: 0.35rem 0.5rem;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
 }
 
 /* Icon Buttons */
@@ -507,15 +507,38 @@ body {
   margin: 0 0.25rem;
 }
 
-/* Cart Button Separate */
+/* Search Button & Cart Button - Same styling */
+.search-toggle-btn,
 .cart-btn-separate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
   border-radius: 50%;
   padding: 0.6rem;
   position: relative;
+  min-height: 44px;
+  min-width: 44px;
+  -webkit-tap-highlight-color: transparent;
 }
 
+.search-toggle-btn:hover,
 .cart-btn-separate:hover {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.search-toggle-btn:active,
+.cart-btn-separate:active {
+  transform: scale(0.95);
+}
+
+/* Override icon-btn hover for search button */
+.search-toggle-btn.icon-btn:hover {
   background-color: rgba(0, 0, 0, 0.45);
 }
 
@@ -1167,13 +1190,15 @@ body {
   }
 
   .header-actions {
-    padding: 0.25rem 0.35rem;
+    padding: 0;
+    background-color: transparent;
   }
 
   .icon-btn {
     padding: 0.4rem 0.6rem;
   }
 
+  .search-toggle-btn,
   .cart-btn-separate {
     padding: 0.5rem;
   }
