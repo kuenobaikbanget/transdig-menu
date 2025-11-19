@@ -3203,6 +3203,90 @@ body {
 }
 
 /* ===========================
+   Payment Processing Page
+   =========================== */
+.payment-processing-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--cream-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.payment-processing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem;
+}
+
+.payment-processing-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.payment-processing-spinner {
+  width: 80px;
+  height: 80px;
+  border: 6px solid var(--cream-latte);
+  border-top-color: var(--espresso-brown);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.payment-processing-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark-brown);
+  margin: 0;
+  text-align: center;
+}
+
+.payment-processing-subtitle {
+  font-size: 1rem;
+  color: var(--espresso-brown);
+  margin: 0;
+  text-align: center;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ===========================
    Responsive - Tablet
    =========================== */
 @media (max-width: 768px) {
@@ -4059,5 +4143,51 @@ body {
   .success-print-btn {
     padding: 0.875rem 1.25rem;
     font-size: 0.9375rem;
+  }
+}
+
+/* ===========================
+   Print Styles
+   =========================== */
+@media print {
+  /* Remove browser default headers and footers */
+  @page {
+    margin: 0;
+    size: auto;
+  }
+  
+  body {
+    margin: 1cm;
+  }
+
+  .payment-success-page {
+    background: white;
+    padding: 0;
+  }
+
+  .success-animation,
+  .success-message-box,
+  .success-actions {
+    display: none !important;
+  }
+
+  .success-details-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    page-break-inside: avoid;
+  }
+  
+  .success-header {
+    page-break-after: avoid;
+  }
+  
+  .success-order-section {
+    page-break-inside: avoid;
+  }
+
+  /* Hide all buttons */
+  .success-back-btn,
+  .success-print-btn {
+    display: none !important;
   }
 }

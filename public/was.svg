@@ -1,0 +1,38 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cupGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8D6E63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5D4037;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="coffeeLiquid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4E342E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3E2723;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="256" cy="430" rx="140" ry="20" fill="#3E2723" opacity="0.3"/>
+
+  <path d="M360 230 C 410 230 420 290 360 320 L 340 330" stroke="#5D4037" stroke-width="30" fill="none" stroke-linecap="round"/>
+
+  <path d="M136 180 L 156 340 C 160 390 200 420 256 420 C 312 420 352 390 356 340 L 376 180 Z" fill="url(#cupGradient)"/>
+
+  <ellipse cx="256" cy="180" rx="120" ry="25" fill="url(#coffeeLiquid)"/>
+
+  <g transform="translate(256, 300) scale(0.8)">
+     <path d="M -20 -30 Q 40 -30 40 10 Q 40 50 -20 50 Q -60 50 -60 10 Q -60 -30 -20 -30" fill="#3E2723" opacity="0.4"/>
+     <path d="M -20 -30 Q 10 -30 10 10 Q 10 30 -20 50" stroke="#8D6E63" stroke-width="3" fill="none"/>
+  </g>
+
+  <g stroke="#8D6E63" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.7">
+    <path d="M 220 120 Q 240 80 220 50">
+      <animate attributeName="d" values="M 220 120 Q 240 80 220 50; M 220 120 Q 200 80 220 50; M 220 120 Q 240 80 220 50" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 256 100 Q 236 60 256 30">
+      <animate attributeName="d" values="M 256 100 Q 236 60 256 30; M 256 100 Q 276 60 256 30; M 256 100 Q 236 60 256 30" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+    </path>
+    <path d="M 292 120 Q 312 80 292 50">
+      <animate attributeName="d" values="M 292 120 Q 312 80 292 50; M 292 120 Q 272 80 292 50; M 292 120 Q 312 80 292 50" dur="3s" repeatCount="indefinite" begin="1s"/>
+    </path>
+  </g>
+</svg>

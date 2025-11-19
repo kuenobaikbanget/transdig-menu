@@ -17,11 +17,13 @@ import AddToCartModal from './Cart/AddToCart';
 import CartModal from './Cart/Cart';
 import PaymentPage from './Payment/PaymentPage';
 import OrderProcessing from './Payment/OrderProcessing';
+import PaymentProcessing from './Payment/PaymentProcessing';
 import PaymentSuccess from './Successful/PaymentSuccess';
 
 const MenuDashboard = () => {
   const [showPaymentPage, setShowPaymentPage] = useState(false);
   const [showProcessing, setShowProcessing] = useState(false);
+  const [showPaymentProcessing, setShowPaymentProcessing] = useState(false);
   const [showPaymentSuccess, setShowPaymentSuccess] = useState(false);
   const [selectedTableNumber, setSelectedTableNumber] = useState('');
   const [orderData, setOrderData] = useState(null);
@@ -61,14 +63,21 @@ const MenuDashboard = () => {
     // Save order data
     setOrderData(orderData);
     
-    // Hide payment page and show success page
+    // Hide payment page and show payment processing
     setShowPaymentPage(false);
-    setShowPaymentSuccess(true);
+    setShowPaymentProcessing(true);
+    
+    // Show processing for 2 seconds then show success
+    setTimeout(() => {
+      setShowPaymentProcessing(false);
+      setShowPaymentSuccess(true);
+    }, 2000);
   };
 
   const handleBackToMenu = () => {
     // Reset all states
     setShowPaymentSuccess(false);
+    setShowPaymentProcessing(false);
     setShowPaymentPage(false);
     setShowProcessing(false);
     setSelectedTableNumber('');
@@ -80,9 +89,14 @@ const MenuDashboard = () => {
     });
   };
 
-  // Show processing animation
+  // Show order processing animation (when proceeding to payment from cart)
   if (showProcessing) {
     return <OrderProcessing />;
+  }
+
+  // Show payment processing animation (when confirming payment)
+  if (showPaymentProcessing) {
+    return <PaymentProcessing />;
   }
 
   // Show payment success page

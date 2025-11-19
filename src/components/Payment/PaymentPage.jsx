@@ -93,7 +93,15 @@ const PaymentPage = ({
                 className="payment-input"
                 placeholder="Contoh: 08123456789"
                 value={whatsappNumber}
-                onChange={(e) => setWhatsappNumber(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  // Only allow numbers
+                  if (value === '' || /^[0-9]+$/.test(value)) {
+                    setWhatsappNumber(value);
+                  }
+                }}
+                pattern="[0-9]*"
+                inputMode="numeric"
               />
             </div>
 
