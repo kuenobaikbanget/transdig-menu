@@ -4,7 +4,7 @@ export const menuItems = [
     id: 1,
     name: 'Iced Americano',
     category: 'Coffee',
-    description: 'Classic espresso diluted with hot water',
+    description: 'Espresso with cold water',
     price: 22000,
     image: '/menu/coffee/americano.jpeg'
   },
@@ -12,7 +12,7 @@ export const menuItems = [
     id: 2,
     name: 'Hot Latte',
     category: 'Coffee',
-    description: 'Smooth espresso with steamed milk',
+    description: 'Espresso with steamed milk',
     price: 28000,
     image: '/menu/coffee/hotlatte.png'
   },
@@ -20,7 +20,7 @@ export const menuItems = [
     id: 3,
     name: 'Iced Latte',
     category: 'Coffee',
-    description: 'Refreshing cold latte with ice',
+    description: 'Espresso with cold milk',
     price: 28000,
     image: '/menu/coffee/iced-latte.jpeg'
   },
@@ -52,7 +52,7 @@ export const menuItems = [
     id: 7,
     name: 'Es Kopi Soda Lemon',
     category: 'Coffee',
-    description: 'Unique coffee with soda and lemon twist',
+    description: 'Espresso with soda and lemon',
     price: 28000,
     image: '/menu/coffee/es-kopi-sodalemon.jpeg'
   },
@@ -62,7 +62,7 @@ export const menuItems = [
     id: 8,
     name: 'Matcha Latte',
     category: 'Non-Coffee',
-    description: 'Premium Japanese green tea latte',
+    description: 'Matcha latte',
     price: 30000,
     image: '/menu/non-coffee/matcha.png'
   },
@@ -70,7 +70,7 @@ export const menuItems = [
     id: 9,
     name: 'Hojicha Latte',
     category: 'Non-Coffee',
-    description: 'Roasted Japanese green tea',
+    description: 'Roasted Japanese green tea with milk',
     price: 30000,
     image: '/menu/non-coffee/hojicha.png'
   },
@@ -78,7 +78,7 @@ export const menuItems = [
     id: 10,
     name: 'Chocolate',
     category: 'Non-Coffee',
-    description: 'Rich and creamy hot chocolate',
+    description: 'Rich and creamy ice chocolate',
     price: 28000,
     image: '/menu/non-coffee/chocolate.png'
   },
@@ -102,7 +102,7 @@ export const menuItems = [
     id: 13,
     name: 'Redrum',
     category: 'Non-Coffee',
-    description: 'Special red fruit blend',
+    description: 'Dragon fruit mocktail with a hint of strawberry',
     price: 30000,
     image: '/menu/non-coffee/redrum.png'
   },
@@ -112,7 +112,7 @@ export const menuItems = [
     id: 14,
     name: 'Ramen Toripaitan',
     category: 'Ramen',
-    description: 'Creamy chicken broth ramen',
+    description: 'Ramen with creamy broth + chicken + Nori + Ajitsuke Tamago',
     price: 35000,
     image: '/menu/ramen/ramen-toripaitan.jpeg'
   },
@@ -120,7 +120,7 @@ export const menuItems = [
     id: 15,
     name: 'Ramen Toripaitan Shoyu',
     category: 'Ramen',
-    description: 'Chicken broth with soy sauce',
+    description: 'Ramen with shoyu + Sous Vide Chicken + Nori + Ajitsuke Tamago',
     price: 35000,
     image: '/menu/ramen/ramen-toripaitan-shoyu.jpeg'
   },
@@ -128,7 +128,7 @@ export const menuItems = [
     id: 16,
     name: 'Ramen Miso',
     category: 'Ramen',
-    description: 'Traditional miso broth ramen',
+    description: 'Ramen with rich miso broth + sous vide chicken + Ajitsuke Tamago',
     price: 35000,
     image: '/menu/ramen/ramen-miso.jpeg'
   },
@@ -136,7 +136,7 @@ export const menuItems = [
     id: 17,
     name: 'Ramen Soyu Chintan',
     category: 'Ramen',
-    description: 'Clear soy sauce broth',
+    description: 'Ramen with clear soy sauce broth + sous vide chicken + Nori + Ajitsuke Tamago',
     price: 35000,
     image: '/menu/ramen/ramen-soyuchintan.jpeg'
   },
@@ -144,7 +144,7 @@ export const menuItems = [
     id: 18,
     name: 'Ramen Tantan Men',
     category: 'Ramen',
-    description: 'Spicy sesame paste ramen',
+    description: 'Ramen with spicy sesame broth + minced chicken + Nori + Ajitsuke Tamago',
     price: 38000,
     image: '/menu/ramen/ramen-tantan-men.jpeg'
   },
@@ -152,7 +152,7 @@ export const menuItems = [
     id: 19,
     name: 'Ramen Curry',
     category: 'Ramen',
-    description: 'Japanese curry ramen',
+    description: 'Ramen with Japanese curry broth + sous vide chicken + Nori + Ajitsuke Tamago',
     price: 38000,
     image: '/menu/ramen/ramen-curry.jpeg'
   },
@@ -162,7 +162,7 @@ export const menuItems = [
     id: 20,
     name: 'Chicken Teriyaki',
     category: 'Rice Bowl',
-    description: 'Grilled chicken with teriyaki sauce',
+    description: 'Chicken karaage with teriyaki sauce + Coleslaw salad',
     price: 30000,
     image: '/menu/rice-bowl/chicken-teriyaki.jpeg'
   },
@@ -170,7 +170,7 @@ export const menuItems = [
     id: 21,
     name: 'Chicken Nanban',
     category: 'Rice Bowl',
-    description: 'Fried chicken with tartar sauce',
+    description: 'Chicken karaage with nanban tartar sauce + Coleslaw salad',
     price: 32000,
     image: '/menu/rice-bowl/chicken-nanban.jpeg'
   },
@@ -178,7 +178,7 @@ export const menuItems = [
     id: 22,
     name: 'Chicken Mentai',
     category: 'Rice Bowl',
-    description: 'Chicken with spicy mentaiko sauce',
+    description: 'Chicken karaage with mentai sauce + Coleslaw salad',
     price: 32000,
     image: '/menu/rice-bowl/chicken-mentai.jpeg'
   },
@@ -186,7 +186,7 @@ export const menuItems = [
     id: 23,
     name: 'Chicken Curry',
     category: 'Rice Bowl',
-    description: 'Japanese style chicken curry',
+    description: 'Chicken Katsu with Japanese curry sauce + Coleslaw salad',
     price: 32000,
     image: '/menu/rice-bowl/chicken-curry.jpeg'
   },
