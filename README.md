@@ -1,16 +1,46 @@
-# React + Vite
+# Transdig Menu - Sistem Menu Digital & Pemesanan
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistem menu digital dan pemesanan yang modern dan responsif dibangun dengan React dan Vite. Aplikasi ini memungkinkan pelanggan untuk melihat menu, menyesuaikan pesanan, dan menyelesaikan pembayaran dengan mudah.
 
-Currently, two official plugins are available:
+![Preview](ss.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## React Compiler
+- React
+- Vite
+- JavaScript
+- CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Prasyarat
 
-## Expanding the ESLint configuration
+Sebelum memulai, pastikan Anda telah menginstal:
+- Node.js (versi 14.0 atau lebih tinggi)
+- npm (versi 6.0 atau lebih tinggi) atau yarn
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Instalasi
+
+Ikuti langkah-langkah berikut untuk menjalankan website secara lokal:
+
+1. Clone repository
+```bash
+git clone https://github.com/kuenobaikbanget/transdig-menu.git
+cd transdig-menu
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Jalankan development server
+```bash
+npm run dev
+```
+
+4. Buka browser Anda dan navigasi ke
+```
+http://localhost:5173
+```
+
+Aplikasi sekarang sudah berjalan di mesin lokal Anda.
+
